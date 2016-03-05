@@ -1,0 +1,5 @@
+*.gsheet
+*.pdf
+/LTspice/*.(^asc)
+/Performance
+/KiCad/*bak
