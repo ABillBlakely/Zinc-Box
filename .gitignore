@@ -2,6 +2,9 @@
 *.pdf
 *.ipynb*
 /LTspice/*.(^asc)
-/Performance
 *bak
 *cache*
+*.docx
+*.xlsx
+*.pdf
+/References/
