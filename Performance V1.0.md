@@ -51,7 +51,7 @@ IMD (ITU_R): 0.080% 13 kHz/14 kHz, 1:1
 
 The IMD results also show a very low 0.080%. Once again the input signal is still calibrated for 20 Hz region of the response. One thing about IMD is that it sometimes can be worse for lower input signals, so it is possible this value could be "improved" somewhat through test manipulation. For future tests, I will try to perform IMD at several input levels. 
 
-![IMD test](Performance\figures/RIAA Preamp IMD.png)
+![IMD test](Performance/figures/RIAA Preamp IMD.png)
 *Figure 5: Results of IMD Test*
 
 In figure 5, you can see the small peak created at on 1 kHz by the twin tones of the IMD test. Most of the spikes on this graph appear at multiples of 60 Hz.
