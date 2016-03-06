@@ -7,13 +7,13 @@ To characterize the performance of the preamp tests were performed using the [AR
 The frequency response was measured using ARTA, and the data was compared against the ideal response and against an LTSpice simulation of the signal chain. A comparison between the right and left channel was also performed. All values were normalized at 1 kHz to make comparison consistent.
 
 ### Overall Response.
-![Frequency Response](Performance/figures/freq-response.png)
+![Frequency Response](Performance/figures/frequency-response.png)
 ###### Figure 1: Results of frequency measurement
 
 The measured response matches the LTspice simulation so closely that it's data is almost obscured entirely. There is some obvious error when compared with the ideal response. This is one of the goals of version 2. Knowing that the simulation can be trusted to match closely with real world performance should make the job of choosing better component values easier.
 
 ### Response Error.
-![Frequency Error](Performance/figures/freq-error.png)
+![Frequency Error](Performance/figures/frequency-error.png)
 *Figure 2: Relative frequency response*
 
 Figure 2 shows the difference from the measured response to simulated (blue) and the ideal (red). This graph also quantifies what figure 1 had shown before. less than 0.5 dB difference from 20 Hz to 20 kHz for the simulation is very good. The ideal response is not so good, at around 1.5 db too low at low frequencies and almost 2 dB high at high frequencies. This is almost certainly audible difference. 
