@@ -1,10 +1,9 @@
 *.gsheet
-*.pdf
+Performance/*.pdf
 *.ipynb*
 /LTspice/*.(^asc)
 *bak
 *cache*
 *.docx
 *.xlsx
-*.pdf
 /References/
