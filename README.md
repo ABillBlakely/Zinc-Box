@@ -23,7 +23,7 @@ V1 offered up some pretty decent performance, but has it's issues as well. For a
 - IMD < 0.08%
 
 ## Intended changes for V2.
-Changes will come in two categories, electrical and mechanical. You can see more details for many of these things in the [issue tracker](issues).
+Changes will come in two categories, electrical and mechanical. You can see more details for many of these things in the [issue tracker](https://github.com/ABillBlakely/riaa-preamp/issues).
 
 ### Electrical
 - Closer match to ideal transfer curve.
