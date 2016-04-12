@@ -15,7 +15,7 @@ In this repository you will find:
 Version 2, the current development, is meant to improve on the performance of version 1. V2 may roll in some of the features that were omitted from V1 and will include many improvements electrically and mechanically.
 
 ## Performance of V1
-V1 offered up some pretty decent performance, but has it's issues as well. For a more thorough look at performance, check [Performance V1.0.md](Performance V1.0.md).
+V1 offered up some pretty decent performance, but has its issues as well. For a more thorough look at performance, check [Performance V1.0.md](Performance V1.0.md).
 
 - Freq Response within +/- 2 dB of ideal across the audio spectrum.
 - Channel matching within +/- 0.25 dB.
