@@ -30,7 +30,7 @@ Three types of distortion were measured for these tests. THD (*Total harmonic di
 ### Harmonic Distortion.
 
 |Frequency| THD (%) |THD+N (%)|
-|:-------:|:-------:|: ---:|
+|:-------:|:-------:|:---:|
 | 20 Hz   | 0.046   | 0.074|
 | 1 kHz   | 0.017   | 0.32 |
 | 10 kHz  | 0.023   | 1.38 |
