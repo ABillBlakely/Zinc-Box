@@ -29,11 +29,11 @@ Three types of distortion were measured for these tests. THD (*Total harmonic di
 
 ### Harmonic Distortion.
 
-Frequency| THD (%) |THD+N (%)
-:-------:|:-------:|: ---:
-20 Hz    | 0.046   | 0.074
-1 kHz    | 0.017   | 0.32
-10 kHz   | 0.023   | 1.38
+|Frequency| THD (%) |THD+N (%)|
+|:-------:|:-------:|: ---:|
+| 20 Hz   | 0.046   | 0.074|
+| 1 kHz   | 0.017   | 0.32 |
+| 10 kHz  | 0.023   | 1.38 |
 
 The overall values are very good. The goal was a hazy 'less than 0.1% would be nice' but I wasn't too sure what to expect. That most values are less than half that was a pleasant surprise. It should be noted that there are two things that may be inflating these figures as well. 
 - The 20 Hz test signal is going to count the power supply 60 Hz hum as a harmonic, increasing the value for THD. 
