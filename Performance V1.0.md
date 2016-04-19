@@ -8,19 +8,19 @@ The frequency response was measured using ARTA, and the data was compared agains
 
 ### Overall Response.
 ![Frequency Response](Performance/figures/frequency-response.png)
-###### Figure 1: Results of frequency measurement
+*Figure 1: Results of frequency measurement.*
 
 The measured response matches the LTspice simulation so closely that it's data is almost obscured entirely. There is some obvious error when compared with the ideal response. This is one of the goals of version 2. Knowing that the simulation can be trusted to match closely with real world performance should make the job of choosing better component values easier.
 
 ### Response Error.
 ![Frequency Error](Performance/figures/frequency-error.png)
-*Figure 2: Relative frequency response*
+*Figure 2: Relative frequency response.*
 
 Figure 2 shows the difference from the measured response to simulated (blue) and the ideal (red). This graph also quantifies what figure 1 had shown before. less than 0.5 dB difference from 20 Hz to 20 kHz for the simulation is very good. The ideal response is not so good, at around 1.5 db too low at low frequencies and almost 2 dB high at high frequencies. This is almost certainly audible difference. 
 
 ### Channel Matching.
 ![Channel Matching](Performance/figures/channel-matching.png)
-*Figure 3*
+*Figure 3: Difference between left and right channels.*
 
 Matching between channels was very good, less than 0.25 dB throughout the range. This is widely considered completely inaudible. While it is hard to draw too many conclusion from a single unit, the results of these tests seems to indicate that there is no need to go to parts of any higher tolerance.
 
