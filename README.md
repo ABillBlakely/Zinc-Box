@@ -1,10 +1,10 @@
-# RIAA Preamp
+# The Zinc Box
 
 ### The feature complete RIAA preamp.
 
 ## Introduction.
 
-This RIAA preamp was meant to be a simple, high performance preamp for my personal use.
+The Zinc box is an RIAA preamp was meant to be a simple, high performance preamp for my personal use.
 Version 1 was named the feature complete version because it had none of the typical features of most RIAA preamps. The usual features are gain control and input impedance matching. 
 
 In this repository you will find:
