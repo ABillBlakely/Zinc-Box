@@ -1,4 +1,4 @@
-*.gsheet
+*.g*
 Performance/*.pdf
 *.ipynb*
 /LTspice/*.(^asc)
