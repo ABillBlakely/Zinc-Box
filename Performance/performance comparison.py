@@ -1,9 +1,10 @@
-import numpy as np
+import os
+
 import matplotlib.pyplot as plt
 from matplotlib import ticker
-import os
-from numpy import pi, abs, log10
+from numpy import abs, log10, pi, searchsorted
 from pandas import read_csv, read_table
+
 
 # set the working directory
 os.chdir('C:/Users/boxca/external/Google Drive/Projects/zinc-box/Performance/data')
@@ -30,7 +31,7 @@ meas_mag = meas_data['mag'].values
 
 # Response should be +40dB at 1khz. Adjust so all responses match a 1kHz.
 # Find index nearest 1kHz
-norm_index = np.searchsorted(freq, 1000)
+norm_index = searchsorted(freq, 1000)
 # Determine appropriate gain
 normalization = 40 - meas_mag[norm_index]
 # Adjust magnitude.
@@ -43,16 +44,13 @@ T1 = 3180E-6
 T2 = 318E-6
 T3 = 75E-6
 
-# create the array of frequencies
-# freq = np.linspace(0, samplerate/2, 16384, endpoint=False)
-
 # The transfer function
 ideal_resp = ((1 + T2 * 2 * pi * freq * 1j)
               / ((1 + T1 * 2 * pi * freq * 1j) * (1 + T3 * 2 * pi * freq * 1j))
               )
 
 # Get the magnitude in dB
-ideal_mag = 20 * np.log10(np.abs(ideal_resp))
+ideal_mag = 20 * log10(abs(ideal_resp))
 
 # Normalize ideal response
 # Determine appropriate gain
