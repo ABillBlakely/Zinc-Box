@@ -1,9 +1,8 @@
 *.g*
 Performance/*.pdf
-*.ipynb*
 /LTspice/*.(^asc)
 *bak
 *cache*
+*autosave*
 *.docx
 *.xlsx
-/References/
