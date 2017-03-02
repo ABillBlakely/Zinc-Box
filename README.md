@@ -38,7 +38,7 @@ The first meeting held established some of the background of audio testing and m
 - I highly recommend you get [ARTA](http://artalabs.hr/), the user manual is pretty good at guiding you through the setup and measurement techniques.
 - [Audio Specifications](http://www.rane.com/note145.html) from Rane Audio is a great, succinct, resource for some more detail on the measurements we performed. It also may give you ideas for additional measurements we should make.
 - We established some of the goals which are updated in the __Goals__ section above.
-- Next meeting will be Thursday, March 2. We will be performing measurements a little more methodically to produce a new performance report.
+- (UPDATE: In room 126.) Next meeting will be Thursday, March 2. We will be performing measurements a little more methodically to produce a new performance report.
 
 ## References and Resources
 - [RIAA Equalization](https://en.wikipedia.org/wiki/RIAA_equalization) from wikipedia for what the RIAA curve is and the history behind the standard.
