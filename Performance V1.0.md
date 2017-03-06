@@ -7,55 +7,48 @@ To characterize the performance of the preamp tests were performed using the [AR
 The frequency response was measured using ARTA, and the data was compared against the ideal response and against an LTSpice simulation of the signal chain. A comparison between the right and left channel was also performed. All values were normalized at 1 kHz to make comparison consistent.
 
 ### Overall Response.
-![Frequency Response](Performance/figures/frequency-response.png)
+![Frequency Response](Performance/figures/Normalized-response-comparison.png)
 *Figure 1: Results of frequency measurement.*
 
 The measured response matches the LTspice simulation so closely that it's data is almost obscured entirely. There is some obvious error when compared with the ideal response. This is one of the goals of version 2. Knowing that the simulation can be trusted to match closely with real world performance should make the job of choosing better component values easier.
 
 ### Response Error.
-![Frequency Error](Performance/figures/frequency-error.png)
+![Frequency Error](Performance/figures/Normalized-response-error.png)
 *Figure 2: Relative frequency response.*
 
 Figure 2 shows the difference from the measured response to simulated (blue) and the ideal (red). This graph also quantifies what figure 1 had shown before. less than 0.5 dB difference from 20 Hz to 20 kHz for the simulation is very good. The ideal response is not so good, at around 1.5 db too low at low frequencies and almost 2 dB high at high frequencies. This is almost certainly audible difference. 
 
 ### Channel Matching.
-![Channel Matching](Performance/figures/channel-matching.png)
+![Channel Matching](Performance/figures/Channel-matching.png)
 *Figure 3: Difference between left and right channels.*
 
-Matching between channels was very good, less than 0.25 dB throughout the range. This is widely considered completely inaudible. While it is hard to draw too many conclusion from a single unit, the results of these tests seems to indicate that there is no need to go to parts of any higher tolerance.
-
 ## Distortion.
-Three types of distortion were measured for these tests. THD (*Total harmonic distortion*), THD+N (*THD plus noise*), and IMD (*intermodulation distortion*). The harmonic distortion tests were performed at three discrete frequencies, and IMD used the ITU_R standard of 13/14 kHz twin tones at a ratio of 1:1. For more information on audio distortion I recommend starting with [This RANE Audio note](http://www.rane.com/note145.html).
+Three types of distortion were measured for these tests. THD (*Total harmonic distortion*), THD+N (*THD plus noise*), and IMD (*intermodulation distortion*). THD was checked for anomalies using steps to measure across the frequency response as seen in Figure 4. Measured values are taken at specific points to measure relative to correct signal levels. IMD uses the ITU_R standard of 19/20 kHz twin tones at a ratio of 1:1. For more information on audio distortion I recommend starting with [This RANE Audio note](http://www.rane.com/note145.html).
 
 ### Harmonic Distortion.
 
-|Frequency| THD (%) |THD+N (%)|
-|:-------:|:-------:|:---:|
-| 20 Hz   | 0.046   | 0.074|
-| 1 kHz   | 0.017   | 0.32 |
-| 10 kHz  | 0.023   | 1.38 |
+| Freq (Hz) | Level (dB) | THD (%) | THD+N (%) |
+|-----------|------------|---------|-----------|
+|       100 |       -3.0 |  0.0099 |     0.055 |
+|      1000 |       -3.3 |  0.0034 |     0.067 |
+|     10000 |       -2.9 |   0.025 |     0.073 |
 
-The overall values are very good. The goal was a hazy 'less than 0.1% would be nice' but I wasn't too sure what to expect. That most values are less than half that was a pleasant surprise. It should be noted that there are two things that may be inflating these figures as well. 
-- The 20 Hz test signal is going to count the power supply 60 Hz hum as a harmonic, increasing the value for THD. 
-- The THD+N figure is very high at 10 kHZ, and somewhat high at 1 kHz. This is because the input level was optimized where gain was the highest, at 20 Hz. At higher frequencies the gain is much lower so the noise appears as a proportionally larger component in the result. Adjusting the input signal at each frequency is probably how this should be done, and should get better results.
-
-One more note, all of these should be considered 'less than xx%' values. What was measured is technically the sum of the unit and the audio interface that was used. Since the interface itself has very good performance I don't see the need to try to subtract out the small factor.
-
-![THD 1kHz](Performance/figures/RIAA Preamp 1kHz THD.png)
-*Figure 4: Response at 1kHz*
-
-Here you can see the main test tone at 1 kHz, The harmonics are not really even visible. What you can see is noise coming from the power supply, and some of it's harmonics. Down around -85 dB this isn't a huge deal, but I would like to knock this down a fair bit in the next version. 
+![THD](Performance/figures/steps_thd_measurement.PNG)
+*Figure 4: THD measured across frequency. Due to the non flat frequency response this does not use the preferred -3dB  signal level so final measurements are performed at just a few values.*
 
 ### Intermodulation Distortion.
-IMD (ITU_R): 0.080% 13 kHz/14 kHz, 1:1
 
-The IMD results also show a very low 0.080%. Once again the input signal is still calibrated for 20 Hz region of the response. One thing about IMD is that it sometimes can be worse for lower input signals, so it is possible this value could be "improved" somewhat through test manipulation. For future tests, I will try to perform IMD at several input levels. 
+| Freqs  (kHz) | Level (dB) | Magnitude ratio | IMD (%) | standard |
+|--------------|------------|-----------------|---------|----------|
+| 19/20        |       -3.0 | 1:1             |   0.062 | ITU-R    |
 
-![IMD test](Performance/figures/RIAA Preamp IMD.png)
-*Figure 5: Results of IMD Test*
+## Noise
 
-In figure 5, you can see the small peak created at on 1 kHz by the twin tones of the IMD test. Most of the spikes on this graph appear at multiples of 60 Hz.
+The noise level was measured with a 0V input, and taken to be the resulting RMS level. 
+The noise figure is dominated by the power supply, with the peak -68.5 dB at 60 Hz nearly equal to the the total noise figure.
 
-## Summary
+|Bandwidth |  Noise   |
+|----------|----------|
+|  44 kHz  | -67.0 dB |
 
-Overall, I was quite pleased with the performance of the first version. All numbers aside, There is nothing in the performance that makes it audibly bad. Most of the improvements that are planned for V2 are technical improvements and won't significantly change the listening experience. 
+![Noise measurement](Performance/noise,-200db_source_measured.PNG)
