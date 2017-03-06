@@ -16,7 +16,7 @@ The measured response matches the LTspice simulation so closely that it's data i
 ![Frequency Error](Performance/figures/Normalized-response-error.png)
 *Figure 2: Relative frequency response.*
 
-Figure 2 shows the difference from the measured response to simulated (blue) and the ideal (red). This graph also quantifies what figure 1 had shown before. less than 0.5 dB difference from 20 Hz to 20 kHz for the simulation is very good. The ideal response is not so good, at around 1.5 db too low at low frequencies and almost 2 dB high at high frequencies. This is almost certainly audible difference. 
+Figure 2 shows the difference from the measured response to simulated (blue) and the ideal (red). This graph also quantifies what figure 1 had shown before. less than 0.5 dB difference from 20 Hz to 20 kHz for the simulation is very good. The ideal response is not so good, at around 1.5 db too low at low frequencies and almost 2 dB high at high frequencies. This is almost certainly audible difference.
 
 ### Channel Matching.
 ![Channel Matching](Performance/figures/Channel-matching.png)
@@ -44,11 +44,11 @@ Three types of distortion were measured for these tests. THD (*Total harmonic di
 
 ## Noise
 
-The noise level was measured with a 0V input, and taken to be the resulting RMS level. 
+The noise level was measured with a 0V input, and taken to be the resulting RMS level.
 The noise figure is dominated by the power supply, with the peak -68.5 dB at 60 Hz nearly equal to the the total noise figure.
 
 |Bandwidth |  Noise   |
 |----------|----------|
 |  44 kHz  | -67.0 dB |
 
-![Noise measurement](Performance/noise,-200db_source_measured.PNG)
+![Noise measurement](Performance/figures/noise,-200db_source_measured.PNG)
