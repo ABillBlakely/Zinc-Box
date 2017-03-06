@@ -12,6 +12,7 @@ except:
     print('Please run script from performance directory.')
     exit()
 
+
 # MEASURED DATA
 
 # Read and extract data from the arta data export.
@@ -30,15 +31,24 @@ meas_data_left = read_csv('freq resp meas left.csv',
 
 # This freq axis will be used for all further data.
 freq = meas_data_left['freq'].values
-meas_mag = meas_data_left['mag'].values
+meas_mag_left = meas_data_left['mag'].values
+
+# Repeat for right channel.
+# Freq and mag data.
+meas_data_right = read_csv('freq resp meas right.csv',
+                           header=3,
+                           names=['freq', 'mag'])
+
+# This freq axis will be used for all further data.
+meas_mag_right = meas_data_right['mag'].values
 
 # Response should be +40dB at 1khz. Adjust so all responses match a 1kHz.
 # Find index nearest 1kHz
 norm_index = searchsorted(freq, 1000)
 # Determine appropriate gain
-normalization = 40 - meas_mag[norm_index]
+normalization = 40 - meas_mag_left[norm_index]
 # Adjust magnitude.
-meas_mag_norm = meas_mag + normalization
+meas_mag_left_norm = meas_mag_left + normalization
 
 # IDEAL DATA
 
@@ -98,17 +108,14 @@ plt.cla()
 plt.ion()
 
 resp_fig = plt.figure(1)
-plt.semilogx(freq, ideal_mag,
-             freq, meas_mag,
-             freq, sim_mag)
-plt.title('Frequency Response w/o Normalization')
-plt.legend(['Ideal', 'Measured', 'Simulated'])
-plt.ylim(10, 60)
+plt.semilogx(freq, meas_mag_left)
+plt.title('Measured Frequency Response')
+plt.ylim(5, 45)
 plt_setup()
 
 resp_norm_fig = plt.figure(2)
 plt.semilogx(freq, ideal_mag,
-             freq, meas_mag_norm,
+             freq, meas_mag_left_norm,
              freq, sim_mag_norm)
 plt.title('Normalized Frequency Response')
 plt.legend(['Ideal', 'Measured', 'Simulated'])
@@ -116,14 +123,22 @@ plt.ylim(10, 60)
 plt_setup()
 
 error_fig = plt.figure(3)
-plt.semilogx(freq, meas_mag_norm - ideal_mag,
-             freq, meas_mag_norm - sim_mag_norm)
+plt.semilogx(freq, meas_mag_left_norm - ideal_mag,
+             freq, meas_mag_left_norm - sim_mag_norm)
 plt.title('Normalized Error with ideal response')
 plt.legend(['Ideal', 'Simulation'])
-plt.ioff()
 plt.ylim(-3, 3)
 plt_setup()
+
+chan_match_fig = plt.figure(4)
+plt.semilogx(freq, meas_mag_left - meas_mag_right)
+plt.title('Channel matching')
+plt.ioff()
+plt.ylim(-1, 1)
+plt_setup()
+
 
 resp_fig.savefig('../figures/Frequency response comparison.png')
 resp_norm_fig.savefig('../figures/Normalized response comparison.png')
 error_fig.savefig('../figures/Normalized response error.png')
+chan_match_fig.savefig('../figures/Channel matching.png')
