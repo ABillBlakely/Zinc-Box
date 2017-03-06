@@ -5,29 +5,32 @@ from matplotlib import ticker
 from numpy import abs, log10, pi, searchsorted
 from pandas import read_csv, read_table
 
-
-# set the working directory
-os.chdir('C:/Users/boxca/external/Google Drive/Projects/zinc-box/Performance/data')
+# Check correct directory and switch to data.
+try:
+    os.chdir('./data')
+except:
+    print('Please run script from performance directory.')
+    exit()
 
 # MEASURED DATA
 
 # Read and extract data from the arta data export.
 # First few rows contain measurement conditions.
-meas_param = read_csv('freq resp meas left.csv',
-                      header=0,
-                      nrows=2,
-                      names=['param', 'value'])
-samplerate = meas_param['value'][1]
-fftsize = int(meas_param['value'][0])
+meas_param_left = read_csv('freq resp meas left.csv',
+                           header=0,
+                           nrows=2,
+                           names=['param', 'value'])
+samplerate = int(meas_param_left['value'][1])
+fftsize = int(meas_param_left['value'][0])
 
 # remaining lines contain freq and mag data.
-meas_data = read_csv('freq resp meas left.csv',
-                     header=3,
-                     names=['freq', 'mag'])
+meas_data_left = read_csv('freq resp meas left.csv',
+                          header=3,
+                          names=['freq', 'mag'])
 
 # This freq axis will be used for all further data.
-freq = meas_data['freq'].values
-meas_mag = meas_data['mag'].values
+freq = meas_data_left['freq'].values
+meas_mag = meas_data_left['mag'].values
 
 # Response should be +40dB at 1khz. Adjust so all responses match a 1kHz.
 # Find index nearest 1kHz
@@ -62,16 +65,16 @@ ideal_mag += normalization
 
 # determine reccomended setting and print
 print('Appropriate spice command:\n'
-      '.ac lin {} {} {}'.format(fftsize, freq[1], samplerate/2)
+      '.ac lin {} {} {}'.format(fftsize, freq[0], samplerate/2)
       )
 # input('Press a button to continue when spice data is loaded.')
 
 sim_data = read_table('freq resp LTspice.txt', encoding='cp1252')
 # print(sim_data.head(5))
-sim_mag = sim_data['V(out)'].values
+sim_mag = sim_data['V(out)'].values[:-1]
 for index, point in enumerate(sim_mag):
     real, imag = point.split(sep=',')
-    sim_mag[index] = 20* log10(abs(float(real) + 1j*float(imag)))
+    sim_mag[index] = 20 * log10(abs(float(real) + 1j * float(imag)))
 
 # Normalize
 normalization = 40 - sim_mag[norm_index]
@@ -80,6 +83,7 @@ sim_mag_norm = sim_mag + normalization
 # PLOTS
 # print(plt.style.available)
 plt.style.use('seaborn-talk')
+
 
 def plt_setup():
     plt.xlabel('Freq (Hz)')
@@ -90,6 +94,7 @@ def plt_setup():
     plt.grid(b=True, which='both', axis='both')
     plt.show()
 
+plt.cla()
 plt.ion()
 
 resp_fig = plt.figure(1)
@@ -112,9 +117,13 @@ plt_setup()
 
 error_fig = plt.figure(3)
 plt.semilogx(freq, meas_mag_norm - ideal_mag,
-             freq, meas_mag - sim_mag)
+             freq, meas_mag_norm - sim_mag_norm)
 plt.title('Normalized Error with ideal response')
 plt.legend(['Ideal', 'Simulation'])
 plt.ioff()
 plt.ylim(-3, 3)
 plt_setup()
+
+resp_fig.savefig('../figures/Frequency response comparison.png')
+resp_norm_fig.savefig('../figures/Normalized response comparison.png')
+error_fig.savefig('../figures/Normalized response error.png')
