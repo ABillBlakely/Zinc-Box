@@ -32,6 +32,11 @@ For the second version, subject to change as project is established:
 
 ## Updates
 
+#### Upcoming Meeting 2017-3-10
+The next meeting of the Zinc Box preamp project will be Friday, March 10 at 3:00 in the controls lab (20-112).
+
+For this meeting we will be discussing power supply requirements and the basics of power supply design. This meeting will transition out of the workshop style of th first meeting and into having you all doing the hands on deseign work.
+
 #### 2017-2-24 Meeting
 The first meeting held established some of the background of audio testing and measurement.
 
