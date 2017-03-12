@@ -138,7 +138,7 @@ plt.ylim(-1, 1)
 plt_setup()
 
 
-resp_fig.savefig('../figures/Frequency response comparison.png')
-resp_norm_fig.savefig('../figures/Normalized response comparison.png')
-error_fig.savefig('../figures/Normalized response error.png')
-chan_match_fig.savefig('../figures/Channel matching.png')
+resp_fig.savefig('../figures/Frequency-response-comparison.png')
+resp_norm_fig.savefig('../figures/Normalized-response-comparison.png')
+error_fig.savefig('../figures/Normalized-response-error.png')
+chan_match_fig.savefig('../figures/Channel-matching.png')
