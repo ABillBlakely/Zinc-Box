@@ -1,6 +1,8 @@
 *.g*
 Performance/*.pdf
 /LTspice/*.(^asc)
+/Datasheets/*
+/References/*
 *bak
 *cache*
 *autosave*
